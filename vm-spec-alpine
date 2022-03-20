@@ -1,0 +1,6 @@
+VM_NAME="alpine-2"
+OS_VARIANT="alpinelinux3.14"
+USERNAME="root"
+PASSWORD="changeme"
+MEMORY=1024
+OVS=br-int

@@ -1,0 +1,7 @@
+VM_NAME="arch-2"
+OS_VARIANT="archlinux"
+USERNAME="arch"
+PASSWORD="changeme"
+MEMORY=1024
+OVS=br-int
+VNC=true

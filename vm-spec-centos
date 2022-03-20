@@ -1,0 +1,6 @@
+VM_NAME="centos7-2"
+OS_VARIANT="centos7.0"
+USERNAME="centos"
+PASSWORD="changeme"
+MEMORY=1024
+OVS=br-int

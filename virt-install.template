@@ -1,0 +1,13 @@
+virt-install \
+  --name {{.VmName}} \
+  --memory {{.Memory}} \
+  --disk root-disk.qcow2,device=disk,bus=virtio \
+  {{- if .WithIso}} {{- println }}  --disk cloud-init.iso,device=cdrom \{{end}}
+  --os-type linux \
+  --os-variant {{.OsVariant}} \
+  --virt-type kvm \
+  --graphics none \
+  {{if .WithOvs}}--network bridge=br-int,virtualport_type=openvswitch,model=virtio \{{else -}}
+  --network network=default,model=virtio \{{end}}
+  {{- if not .WithIso}} {{- println }}  --cloud-init root-password-file=keyfile \{{end}}
+  --import

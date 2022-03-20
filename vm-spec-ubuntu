@@ -1,0 +1,6 @@
+VM_NAME="ubuntu2004-2"
+OS_VARIANT="ubuntu20.04"
+USERNAME="ubuntu"
+PASSWORD="changeme"
+MEMORY=1024
+WITHISO=false
