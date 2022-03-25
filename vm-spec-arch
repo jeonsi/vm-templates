@@ -1,4 +1,4 @@
-VM_NAME="arch-2"
+VM_NAME="arch-3"
 OS_VARIANT="archlinux"
 USERNAME="arch"
 PASSWORD="changeme"

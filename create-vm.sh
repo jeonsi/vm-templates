@@ -20,7 +20,7 @@ elif [[ $OS_VARIANT == "centos7.0" ]]; then
 elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
     qemu-img create -q -b alpinelinux3.14.qcow2 -f qcow2 -F qcow2 $VM_NAME.qcow2 10G
 elif [[ $OS_VARIANT == "archlinux" ]]; then
-    qemu-img create -q -b Arch-Linux-x86_64-cloudimg-20220319.50697.qcow2 -f qcow2 -F qcow2 $VM_NAME.qcow2 10G
+    qemu-img create -q -b Arch-Linux-x86_64-cloudimg-20220325.51113.qcow2 -f qcow2 -F qcow2 $VM_NAME.qcow2 10G
 else
     echo "$OS_VARIANT not supported"
     exit 1
