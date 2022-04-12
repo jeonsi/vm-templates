@@ -1,0 +1,6 @@
+VM_NAME="vhost-user-03"
+OS_VARIANT="ubuntu20.04"
+USERNAME="root"
+PASSWORD="changeme"
+MEMORY=2048
+WITHISO=false
