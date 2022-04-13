@@ -21,7 +21,10 @@ poweroff
 virsh undefine focal
 
 eval "$(./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-00)"
-login and poweroff the vm
+login
+/etc/netplan/50-cloud-init.yaml
+# remove mac match
+poweroff
 
 cd ~irteamsu/kvm_perf/script/n4d/vdpa/
 ./undefine_all_vhost_user.sh
