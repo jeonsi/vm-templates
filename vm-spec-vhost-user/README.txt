@@ -63,13 +63,16 @@ cd <script-floder>
 ./mod_vhost_user_xml_42vms_mac4_1q.sh
 ./start_all_vhost_user.sh
 
+./add-vmnet-to-PM1.sh
+
+#add-vmnet-to-PM1.sh
 #!/bin/bash
 
 for i in 0{0..9} {10..20}
 do
 	ansible vhost-user-$i -m shell -a "cat << EOF > /etc/vmnet.env
-MY_IP=1.4.200.$i/8
-E_PEER_IP=1.5.200.$i
+MY_IP=1.4.200.`expr $i + 0`/8
+E_PEER_IP=1.5.200.`expr $i + 0`
 I_PEER_IP=1.4.200.`expr $i + 21`
 EOF
 "
@@ -78,21 +81,21 @@ done
 for i in {21..41}
 do
 	ansible vhost-user-$i -m shell -a "cat << EOF > /etc/vmnet.env
-MY_IP=1.4.200.$i/8
-E_PEER_IP=1.5.200.$i
-echo "I_PEER_IP=1.4.200.`expr $i - 21`"
+MY_IP=1.4.200.`expr $i + 0`/8
+E_PEER_IP=1.5.200.`expr $i + 0`
+I_PEER_IP=1.4.200.`expr $i - 21`
 EOF
 "
 done
 
-
+#add-vmnet-to-PM2.sh
 #!/bin/bash
 
 for i in 0{0..9} {10..20}
 do
         ansible vhost-user-$i -m shell -a "cat << EOF > /etc/vmnet.env
-MY_IP=1.5.200.$i/8
-E_PEER_IP=1.4.200.$i
+MY_IP=1.5.200.`expr $i + 0`/8
+E_PEER_IP=1.4.200.`expr $i + 0`
 I_PEER_IP=1.5.200.`expr $i + 21`
 EOF
 "
@@ -101,9 +104,9 @@ done
 for i in {21..41}
 do
         ansible vhost-user-$i -m shell -a "cat << EOF > /etc/vmnet.env
-MY_IP=1.5.200.$i/8
-E_PEER_IP=1.4.200.$i
-echo "I_PEER_IP=1.5.200.`expr $i - 21`"
+MY_IP=1.5.200.`expr $i + 0`/8
+E_PEER_IP=1.4.200.`expr $i + 0`
+I_PEER_IP=1.5.200.`expr $i - 21`
 EOF
 "
 done
