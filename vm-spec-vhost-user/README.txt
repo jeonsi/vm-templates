@@ -9,19 +9,56 @@ PermitRootLogin yes
 
 apt update
 apt install -y iperf iperf3
-reboot
 poweroff
 virsh undefine focal
 
-eval "$(./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-00)"
-login
-/etc/netplan/50-cloud-init.yaml
-# remove mac match
-poweroff
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-00
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-01
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-02
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-03
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-04
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-05
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-06
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-07
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-08
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-09
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-10
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-11
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-12
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-13
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-14
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-15
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-16
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-17
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-18
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-19
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-20
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-21
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-22
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-23
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-24
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-25
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-26
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-27
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-28
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-29
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-30
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-31
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-32
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-33
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-34
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-35
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-36
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-37
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-38
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-39
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-40
+./create-vm.sh vm-spec-vhost-user/vm-spec-vhost-user-41
 
-cd ~irteamsu/kvm_perf/script/n4d/vdpa/
-./undefine_all_vhost_user.sh
-cd -
+cd <script-floder>
+./create_vhost_user_1c2g.sh
+./mod_vhost_user_xml_42vms_mac4_1q.sh
+./start_all_vhost_user.sh
 
 #!/bin/bash
 
