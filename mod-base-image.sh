@@ -16,13 +16,17 @@ fi
 DISK_NAME=$VM_NAME.qcow2
 
 if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
-    qemu-img create -q -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 $DISK_NAME 10G
+    DISK_NAME=focal-server-cloudimg-amd64.img
+    VM_NAME=focal
 elif [[ $OS_VARIANT == "centos7.0" ]]; then
-    qemu-img create -q -b CentOS-7-x86_64-GenericCloud.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    DISK_NAME=CentOS-7-x86_64-GenericCloud.qcow2
+    VM_NAME=CentOS7
 elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
-    qemu-img create -q -b alpinelinux3.14.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    DISK_NAME=alpinelinux3.14.qcow2
+    VM_NAME=alpine
 elif [[ $OS_VARIANT == "archlinux" ]]; then
-    qemu-img create -q -b Arch-Linux-x86_64-cloudimg-20220325.51113.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    DISK_NAME=Arch-Linux-x86_64-cloudimg-20220325.51113.qcow2
+    VM_NAME=arch
 else
     echo "$OS_VARIANT not supported"
     exit 1
