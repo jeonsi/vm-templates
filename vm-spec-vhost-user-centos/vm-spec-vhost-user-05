@@ -1,0 +1,5 @@
+VM_NAME="vhost-user-05"
+OS_VARIANT="centos7.0"
+USERNAME="root"
+PASSWORD="changeme"
+MEMORY=2048
