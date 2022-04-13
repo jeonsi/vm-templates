@@ -69,4 +69,4 @@ else
 fi
 echo "  --import"
 
-rm -f $VM_NAME-user-data $VM_NAME-meta-data
+#rm -f $VM_NAME-user-data $VM_NAME-meta-data
