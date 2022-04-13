@@ -1,5 +1,8 @@
 # How to create 42 ubuntu 20.04 test vm disks
 ./mod-base-image.sh vm-spec-vhost-user/vm-spec-vhost-user-00
+# /etc/machine-id 내용 제거: backing image에 machine-id가 정의되어 있으면, 이를 기반으로 한 vm image에 모두 동일한 machine-id가 적용되어 동일한 DHCP IP를 받게 되는 문제가 있음
+echo -n > /etc/machine-id
+
 /etc/default/grub
 GRUB_CMDLINE_LINUX="biosdevname=0 net.ifnames=0"
 update-grub
