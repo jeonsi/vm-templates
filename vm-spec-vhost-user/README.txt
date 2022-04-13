@@ -7,13 +7,6 @@ update-grub
 /etc/ssh/sshd_config
 PermitRootLogin yes
 
-/etc/netplan/50-cloud-init.yaml
-network:
-    ethernets:
-        eth0:
-            dhcp4: true
-    version: 2
-
 apt update
 apt install -y iperf iperf3
 reboot
@@ -29,8 +22,6 @@ poweroff
 cd ~irteamsu/kvm_perf/script/n4d/vdpa/
 ./undefine_all_vhost_user.sh
 cd -
-
-rm *.iso
 
 #!/bin/bash
 
