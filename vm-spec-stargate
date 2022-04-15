@@ -1,0 +1,7 @@
+VM_NAME="stargate"
+OS_VARIANT="centos7.0"
+USERNAME="centos"
+PASSWORD="changeme"
+VCPUS=8
+MEMORY=8192
+OVS=br-int

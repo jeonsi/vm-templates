@@ -11,6 +11,7 @@ if [ $num_params -ne 1 ]; then
     exit 1
 fi
 
+VCPUS=1
 . $1
 
 DISK_NAME=$VM_NAME.qcow2
@@ -55,6 +56,9 @@ cloud-localds $VM_NAME-cloud-init.iso $VM_NAME-user-data $VM_NAME-meta-data
 
 echo "virt-install \\"
 echo "  --name $VM_NAME \\"
+echo "  --cpu host \\"
+echo "  --vcpus=$VCPUS \\"
+echo "  --check-cpu \\"
 echo "  --memory $MEMORY \\"
 echo "  --disk $DISK_NAME,device=disk,bus=virtio \\"
 echo "  --disk $VM_NAME-cloud-init.iso,device=cdrom \\"
