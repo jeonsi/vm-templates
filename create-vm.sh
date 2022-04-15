@@ -18,6 +18,7 @@ USERNAME="ubuntu"
 PASSWORD="changeme"
 MEMORY=1024
 VCPUS=1
+DISKSIZE=10G
 
 # override values
 . $1
@@ -25,13 +26,13 @@ VCPUS=1
 DISK_NAME=$VM_NAME.qcow2
 
 if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
-    qemu-img create -q -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 $DISK_NAME 10G
+    qemu-img create -q -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 elif [[ $OS_VARIANT == "centos7.0" ]]; then
-    qemu-img create -q -b CentOS-7-x86_64-GenericCloud.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    qemu-img create -q -b CentOS-7-x86_64-GenericCloud.qcow2 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
-    qemu-img create -q -b alpinelinux3.14.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    qemu-img create -q -b alpinelinux3.14.qcow2 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 elif [[ $OS_VARIANT == "archlinux" ]]; then
-    qemu-img create -q -b Arch-Linux-x86_64-cloudimg-20220325.51113.qcow2 -f qcow2 -F qcow2 $DISK_NAME 10G
+    qemu-img create -q -b Arch-Linux-x86_64-cloudimg-20220325.51113.qcow2 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 else
     echo "$OS_VARIANT not supported"
     exit 1
