@@ -11,7 +11,15 @@ if [ $num_params -ne 1 ]; then
     exit 1
 fi
 
+# default values
+VM_NAME="ubuntu"
+OS_VARIANT="ubuntu20.04"
+USERNAME="ubuntu"
+PASSWORD="changeme"
+MEMORY=1024
 VCPUS=1
+
+# override values
 . $1
 
 DISK_NAME=$VM_NAME.qcow2
