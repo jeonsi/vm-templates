@@ -4,8 +4,12 @@
 # /etc/machine-id 내용 제거: backing image에 machine-id가 정의되어 있으면, 이를 기반으로 한 vm image에 모두 동일한 machine-id가 적용되어 동일한 DHCP IP를 받게 되는 문제가 있음
 
 # for ubuntu 20.04, machine-id file should be emptied, not deleted
+# ubuntu 20.04 cloud image has empty machie-id file
 echo -n > /etc/machine-id
+
 # for centos7, machine-id file should be deleted, not emptied
+# centos7 cloud image has the following machine-id file
+# 754f8a1ad2654504b10cacfb2e9d5eb0
 
 # 혹은 image file mount하여 직접 수정: https://www.jamescoyle.net/how-to/1818-access-a-qcow2-virtual-disk-image-from-the-host
 
