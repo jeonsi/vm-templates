@@ -8,15 +8,40 @@ qemu-img create -f qcow2 alpine3.14.6.qcow2 2G
 virt-install --name alpine3.14.6 --memory 512 --disk alpine3.14.6.qcow2,device=disk,bus=virtio --disk alpine-virt-3.14.6-x86_64.iso,device=cdrom --os-type linux --os-variant alpinelinux3.14 --virt-type kvm --graphics none --network network=default,model=virtio --boot cdrom
 
 
-# how to with qemu (for reference only)
-# with cdrom for os installation
+# how to with qemu directly
+qemu-img create -f qcow2 alpine3.14.6.qcow2 2G
 qemu-system-x86_64 -m 512 -nic user -boot d -cdrom alpine-virt-3.14.6-x86_64.iso \
-  -device virtio-blk-pci,scsi=off,drive=vda,id=vvda,bootindex=1,bus=pci.0,addr=0xb \
-  -drive file=alpine3.14.6.qcow2,if=none,id=vda,cache=none,format=qcow2 \
-  -display gtk -enable-kvm -cpu host
-
-# without cdrom for booting os from qcow2 image
+  -drive file=alpine3.14.6.qcow2,if=virtio,format=qcow2 \
+  -nographic -enable-kvm -cpu host
 qemu-system-x86_64 -m 512 -nic user \
-  -device virtio-blk-pci,scsi=off,drive=vda,id=vvda,bootindex=1,bus=pci.0,addr=0xb \
-  -drive file=alpine3.14.6.qcow2,if=none,id=vda,cache=none,format=qcow2 \
-  -display gtk -enable-kvm -cpu host
+  -drive file=alpine3.14.6.qcow2,if=virtio,format=qcow2 \
+  -nographic -enable-kvm -cpu host
+
+vi /etc/apk/repositories
+# uncomment community
+apk update
+apk add cloud-init
+vi /boot/extlinux.conf
+SERIAL 0 9600
+LABEL virt
+  APPEND root=UUID=... modules=sd-mod,usb-storage,ext4 rootfstype=ext4 console=ttyS0,9600
+vi /etc/ssh/sshd_config
+PermitRootLogin yes
+apk add iperf iperf3 tcpdump
+rc-update add cloud-init-local
+rc-update add cloud-init
+rc-update add cloud-config
+rc-update add cloud-final
+
+# cloud-init boot stage
+# https://cloudinit.readthedocs.io/en/latest/topics/boot.html
+
+# apk usage
+# https://www.cyberciti.biz/faq/how-to-enable-and-start-services-on-alpine-linux/
+rc-status	# list enabled services
+service -l	# list all installed services
+rc-update add <service> # enable a service
+rc-update del <service>	# disable a service
+rc-service <service> start
+rc-service <service> stop
+rc-service <service> restart
