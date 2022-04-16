@@ -1,4 +1,4 @@
-VM_NAME="ubuntu2004-2"
+VM_NAME="ubuntu2004-1"
 OS_VARIANT="ubuntu20.04"
 USERNAME="ubuntu"
 PASSWORD="changeme"

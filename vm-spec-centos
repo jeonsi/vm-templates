@@ -1,4 +1,4 @@
-VM_NAME="centos7-2"
+VM_NAME="centos7-1"
 OS_VARIANT="centos7.0"
 USERNAME="centos"
 PASSWORD="changeme"

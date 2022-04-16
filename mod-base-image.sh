@@ -18,6 +18,9 @@ USERNAME="ubuntu"
 PASSWORD="changeme"
 MEMORY=1024
 VCPUS=1
+DISKSIZE=10G
+VNC=""
+OVS=""
 
 # override values
 . $1
@@ -73,10 +76,10 @@ echo "  --disk $VM_NAME-cloud-init.iso,device=cdrom \\"
 echo "  --os-type linux \\"
 echo "  --os-variant $OS_VARIANT \\"
 echo "  --virt-type kvm \\"
-if [[ -z $VNC ]]; then
-    echo "  --graphics none \\"
-else
+if [[ $VNC == "true" ]] ; then
     echo "  --graphics vnc,listen=0.0.0.0 \\"
+else
+    echo "  --graphics none \\"
 fi
 if [[ -n $OVS ]]; then
     echo "  --network bridge=$OVS,virtualport_type=openvswitch,model=virtio \\"
