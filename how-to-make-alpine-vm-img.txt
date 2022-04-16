@@ -3,20 +3,20 @@
 # sha256sum: 70acb81e36139cc3a53865cdc1732a0de9be9366fbb37cde9af48e2ef72ad0fd  alpine-virt-3.14.6-x86_64.iso
 wget https://dl-cdn.alpinelinux.org/alpine/v3.14/releases/x86_64/alpine-virt-3.14.6-x86_64.iso
 
-qemu-img create -f qcow2 alpine314.qcow2 2G
+qemu-img create -f qcow2 alpine3.14.6.qcow2 2G
 
-virt-install --name alpine314 --memory 512 --disk alpine3146.qcow2,device=disk,bus=virtio --disk alpine-virt-3.14.6-x86_64.iso,device=cdrom --os-type linux --os-variant alpinelinux3.14 --virt-type kvm --graphics none --network network=default,model=virtio --boot cdrom
+virt-install --name alpine3.14.6 --memory 512 --disk alpine3.14.6.qcow2,device=disk,bus=virtio --disk alpine-virt-3.14.6-x86_64.iso,device=cdrom --os-type linux --os-variant alpinelinux3.14 --virt-type kvm --graphics none --network network=default,model=virtio --boot cdrom
 
 
 # how to with qemu (for reference only)
 # with cdrom for os installation
 qemu-system-x86_64 -m 512 -nic user -boot d -cdrom alpine-virt-3.14.6-x86_64.iso \
   -device virtio-blk-pci,scsi=off,drive=vda,id=vvda,bootindex=1,bus=pci.0,addr=0xb \
-  -drive file=alpine314.qcow2,if=none,id=vda,cache=none,format=qcow2 \
+  -drive file=alpine3.14.6.qcow2,if=none,id=vda,cache=none,format=qcow2 \
   -display gtk -enable-kvm -cpu host
 
 # without cdrom for booting os from qcow2 image
 qemu-system-x86_64 -m 512 -nic user \
   -device virtio-blk-pci,scsi=off,drive=vda,id=vvda,bootindex=1,bus=pci.0,addr=0xb \
-  -drive file=alpine314.qcow2,if=none,id=vda,cache=none,format=qcow2 \
+  -drive file=alpine3.14.6.qcow2,if=none,id=vda,cache=none,format=qcow2 \
   -display gtk -enable-kvm -cpu host
