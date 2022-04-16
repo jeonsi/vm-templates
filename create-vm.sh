@@ -35,7 +35,7 @@ CENTOS=CentOS-7-x86_64-GenericCloud-2111.qcow2
 UBUNTU20=ubuntu-20.04-server-cloudimg-amd64.img
 UBUNTU21=ubuntu-21.10-server-cloudimg-amd64.img
 ARCH=Arch-Linux-x86_64-cloudimg-20220415.53207.qcow2
-ALPINE=alpine3146.qcow2
+ALPINE=alpine3.14.6.qcow2
 
 if [[ $2 == "-mod" ]]; then	# modifies image directly
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
