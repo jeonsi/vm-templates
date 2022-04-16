@@ -39,25 +39,25 @@ ALPINE=alpinelinux3.14.qcow2
 
 if [[ $2 == "-mod" ]]; then	# modifies image directly
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
-	cp $UBUNTU ubuntu20.04-cloudimg.qcow2
         VM_NAME=ubuntu20-base
 	DISK_NAME=$VM_NAME.qcow2
+	cp $UBUNTU20 $DISK_NAME
     elif [[ $OS_VARIANT == "ubuntu21.10" ]]; then
-	cp $UBUNTU ubuntu21.10-cloudimg.qcow2
         VM_NAME=ubuntu21-base
 	DISK_NAME=$VM_NAME.qcow2
+	cp $UBUNTU21 $DISK_NAME
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
-	cp $CENTOS centos7-cloudimg.qcow2
         VM_NAME=centos7-base
 	DISK_NAME=$VM_NAME.qcow2
+	cp $CENTOS $DISK_NAME
     elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
-	cp $ALPINE alpine-base.qcow2
         VM_NAME=alpine-base
 	DISK_NAME=$VM_NAME.qcow2
+	cp $ALPINE $DISK_NAME
     elif [[ $OS_VARIANT == "archlinux" ]]; then
-	cp $ARCH archlinux-cloudimg.qcow2
         VM_NAME=arch-base
 	DISK_NAME=$VM_NAME.qcow2
+	cp $ARCH $DISK_NAME
     else
         echo "$OS_VARIANT not supported"
         exit 1
