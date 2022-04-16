@@ -2,7 +2,11 @@
 ./create-vm.sh vm-spec-vhost-user-ubuntu/vm-spec-vhost-user-00 -base
 ./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00 -base
 # /etc/machine-id 내용 제거: backing image에 machine-id가 정의되어 있으면, 이를 기반으로 한 vm image에 모두 동일한 machine-id가 적용되어 동일한 DHCP IP를 받게 되는 문제가 있음
+
+# for ubuntu 20.04, machine-id file should be emptied, not deleted
 echo -n > /etc/machine-id
+# for centos7, machine-id file should be deleted, not emptied
+
 # 혹은 image file mount하여 직접 수정: https://www.jamescoyle.net/how-to/1818-access-a-qcow2-virtual-disk-image-from-the-host
 
 # grub 수정
@@ -18,8 +22,7 @@ PermitRootLogin yes
 apt update
 apt install -y iperf iperf3
 
-# do it once again to make sure
-echo -n > /etc/machine-id
+# check again /etc/machine-id file
 
 poweroff
 virsh undefine focal
