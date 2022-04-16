@@ -42,7 +42,7 @@ if [[ $2 == "-mod" ]]; then	# modifies image directly
         VM_NAME=ubuntu20-base
 	DISK_NAME=$VM_NAME.qcow2
 	cp $UBUNTU20 $DISK_NAME
-    elif [[ $OS_VARIANT == "ubuntu21.10" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
         VM_NAME=ubuntu21-base
 	DISK_NAME=$VM_NAME.qcow2
 	cp $UBUNTU21 $DISK_NAME
@@ -65,7 +65,7 @@ if [[ $2 == "-mod" ]]; then	# modifies image directly
 else	# normal creation
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         qemu-img create -q -b $UBUNTU20 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
-    elif [[ $OS_VARIANT == "ubuntu21.10" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
         qemu-img create -q -b $UBUNTU21 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         qemu-img create -q -b $CENTOS -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE

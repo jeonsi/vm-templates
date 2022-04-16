@@ -1,5 +1,5 @@
 VM_NAME="ubuntu2110-1"
-OS_VARIANT="ubuntu21.10"
+OS_VARIANT="ubuntu21.04"
 USERNAME="ubuntu"
 PASSWORD="changeme"
 MEMORY=1024
