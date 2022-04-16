@@ -11,6 +11,9 @@ echo -n > /etc/machine-id
 # centos7 cloud image has the following machine-id file
 # 754f8a1ad2654504b10cacfb2e9d5eb0
 
+# for archlinux, there is no machine-id file in cloud image
+# for alpine, there is no machine-id file, because it not cloud image 
+
 # 혹은 image file mount하여 직접 수정: https://www.jamescoyle.net/how-to/1818-access-a-qcow2-virtual-disk-image-from-the-host
 
 # grub 수정
