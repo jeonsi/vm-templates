@@ -38,7 +38,7 @@ UBUNTU21=ubuntu-21.10-server-cloudimg-amd64.img
 ARCH=Arch-Linux-x86_64-cloudimg-20220415.53207.qcow2
 ALPINE=alpine3.14.6.qcow2
 
-if [[ $2 == "-mod" ]]; then	# modifies image directly
+if [[ $2 == "-base" ]]; then	# modifies image directly
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         VM_NAME=ubuntu20-base
         DISK_NAME=$VM_NAME.qcow2
@@ -63,7 +63,7 @@ if [[ $2 == "-mod" ]]; then	# modifies image directly
         echo "$OS_VARIANT not supported"
         exit 1
     fi
-elif [[ $2 == "-base" ]]; then
+elif [[ $2 == "-onbase" ]]; then
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         BASE=ubuntu20-base.qcow2
     elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then

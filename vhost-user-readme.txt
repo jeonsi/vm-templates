@@ -1,6 +1,6 @@
 # How to create 42 ubuntu 20.04 test vm disks
-./create-vm.sh vm-spec-vhost-user-ubuntu/vm-spec-vhost-user-00 -mod
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00 -mod
+./create-vm.sh vm-spec-vhost-user-ubuntu/vm-spec-vhost-user-00 -base
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00 -base
 # /etc/machine-id 내용 제거: backing image에 machine-id가 정의되어 있으면, 이를 기반으로 한 vm image에 모두 동일한 machine-id가 적용되어 동일한 DHCP IP를 받게 되는 문제가 있음
 echo -n > /etc/machine-id
 # 혹은 image file mount하여 직접 수정: https://www.jamescoyle.net/how-to/1818-access-a-qcow2-virtual-disk-image-from-the-host
@@ -24,91 +24,91 @@ echo -n > /etc/machine-id
 poweroff
 virsh undefine focal
 
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-01
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-02
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-03
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-04
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-05
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-06
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-07
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-08
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-09
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-10
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-11
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-12
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-13
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-14
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-15
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-16
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-17
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-18
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-19
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-20
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-21
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-22
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-23
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-24
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-25
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-26
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-27
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-28
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-29
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-30
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-31
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-32
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-33
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-34
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-35
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-36
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-37
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-38
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-39
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-40
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-41
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-01 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-02 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-03 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-04 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-05 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-06 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-07 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-08 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-09 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-10 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-11 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-12 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-13 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-14 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-15 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-16 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-17 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-18 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-19 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-20 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-21 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-22 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-23 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-24 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-25 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-26 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-27 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-28 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-29 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-30 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-31 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-32 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-33 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-34 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-35 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-36 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-37 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-38 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-39 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-40 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-41 -onbase
 
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-01
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-02
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-03
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-04
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-05
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-06
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-07
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-08
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-09
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-10
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-11
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-12
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-13
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-14
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-15
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-16
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-17
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-18
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-19
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-20
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-21
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-22
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-23
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-24
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-25
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-26
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-27
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-28
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-29
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-30
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-31
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-32
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-33
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-34
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-35
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-36
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-37
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-38
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-39
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-40
-./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-41
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-00 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-01 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-02 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-03 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-04 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-05 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-06 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-07 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-08 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-09 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-10 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-11 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-12 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-13 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-14 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-15 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-16 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-17 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-18 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-19 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-20 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-21 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-22 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-23 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-24 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-25 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-26 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-27 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-28 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-29 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-30 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-31 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-32 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-33 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-34 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-35 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-36 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-37 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-38 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-39 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-40 -onbase
+./create-vm.sh vm-spec-vhost-user-centos/vm-spec-vhost-user-41 -onbase
 
 cd <script-floder>
 ./create_vhost_user_1c2g.sh
