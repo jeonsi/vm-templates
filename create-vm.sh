@@ -23,6 +23,7 @@ VCPUS=1
 DISKSIZE=10G
 VNC=""
 OVS=""
+BASE=""
 
 # override values
 . $1
@@ -40,43 +41,60 @@ ALPINE=alpine3.14.6.qcow2
 if [[ $2 == "-mod" ]]; then	# modifies image directly
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         VM_NAME=ubuntu20-base
-	DISK_NAME=$VM_NAME.qcow2
-	cp $UBUNTU20 $DISK_NAME
+        DISK_NAME=$VM_NAME.qcow2
+        cp $UBUNTU20 $DISK_NAME
     elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
         VM_NAME=ubuntu21-base
-	DISK_NAME=$VM_NAME.qcow2
-	cp $UBUNTU21 $DISK_NAME
+        DISK_NAME=$VM_NAME.qcow2
+        cp $UBUNTU21 $DISK_NAME
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         VM_NAME=centos7-base
-	DISK_NAME=$VM_NAME.qcow2
-	cp $CENTOS $DISK_NAME
+        DISK_NAME=$VM_NAME.qcow2
+        cp $CENTOS $DISK_NAME
     elif [[ $OS_VARIANT == "archlinux" ]]; then
         VM_NAME=arch-base
-	DISK_NAME=$VM_NAME.qcow2
-	cp $ARCH $DISK_NAME
+        DISK_NAME=$VM_NAME.qcow2
+        cp $ARCH $DISK_NAME
     elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
         VM_NAME=alpine-base
-	DISK_NAME=$VM_NAME.qcow2
-	cp $ALPINE $DISK_NAME
+        DISK_NAME=$VM_NAME.qcow2
+        cp $ALPINE $DISK_NAME
     else
         echo "$OS_VARIANT not supported"
         exit 1
     fi
+elif [[ $2 == "-base" ]]; then
+    if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
+        BASE=ubuntu20-base.qcow2
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+        BASE=ubuntu21-base.qcow2
+    elif [[ $OS_VARIANT == "centos7.0" ]]; then
+        BASE=centos7-base.qcow2
+    elif [[ $OS_VARIANT == "archlinux" ]]; then
+        BASE=arch-base.qcow2
+    elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
+        BASE=alpine-base.qcow2
+    else
+        echo "$OS_VARIANT not supported"
+        exit 1
+    fi
+    qemu-img create -q -b $BASE -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 else	# normal creation
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
-        qemu-img create -q -b $UBUNTU20 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
+        BASE=$UBUNTU20
     elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
-        qemu-img create -q -b $UBUNTU21 -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
+        BASE=$UBUNTU21
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
-        qemu-img create -q -b $CENTOS -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
+        BASE=$CENTOS
     elif [[ $OS_VARIANT == "archlinux" ]]; then
-        qemu-img create -q -b $ARCH -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
+        BASE=$ARCH
     elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
-        qemu-img create -q -b $ALPINE -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
+        BASE=$ALPINE
     else
         echo "$OS_VARIANT not supported"
         exit 1
     fi
+    qemu-img create -q -b $BASE -f qcow2 -F qcow2 $DISK_NAME $DISKSIZE
 fi
 
 # create user-data
