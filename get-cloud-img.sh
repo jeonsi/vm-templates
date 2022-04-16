@@ -17,3 +17,6 @@ wget https://cloud-images.ubuntu.com/releases/focal/release-20220411.2/ubuntu-20
 
 # sha256sum: 96768217b9b571e0afe102ae343955c0184865c0752b6f22152bdb3bb7d2a8e6 *ubuntu-21.10-server-cloudimg-amd64.img
 wget https://cloud-images.ubuntu.com/releases/21.10/release-20220309/ubuntu-21.10-server-cloudimg-amd64.img
+
+# sha256sum: 04db7dddfec7cff457c3d76f5cd4724725233129fc0fc1b6c0198f3bb728e116  Arch-Linux-x86_64-cloudimg-20220415.53207.qcow2
+wget https://gitlab.archlinux.org/archlinux/arch-boxes/-/jobs/53214/artifacts/raw/output/Arch-Linux-x86_64-cloudimg-20220415.53207.qcow2
