@@ -8,7 +8,7 @@ Usage: $(basename $0) <vm-spec-file> [-mod]
 "
 
 num_params=$#
-if [ $num_params -ne 1 ]; then
+if [ $num_params -ge 1 ]; then
     echo "$__usage"
     exit 1
 fi
