@@ -4,11 +4,11 @@ set -e
 __usage="
 Usage: $(basename $0) <vm-spec-file> [-mod]
 
--mod : modifies base image directly
+  -mod : modifies base image directly
 "
 
 num_params=$#
-if [ $num_params -ge 1 ]; then
+if [ $num_params -eq 0 ]; then
     echo "$__usage"
     exit 1
 fi
