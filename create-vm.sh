@@ -35,6 +35,7 @@ DISK_NAME=$VM_NAME.qcow2
 CENTOS=CentOS-7-x86_64-GenericCloud-2111.qcow2
 UBUNTU20=ubuntu-20.04-server-cloudimg-amd64.img
 UBUNTU21=ubuntu-21.10-server-cloudimg-amd64.img
+UBUNTU22=ubuntu-22.04-server-cloudimg-amd64.img
 ARCH=Arch-Linux-x86_64-cloudimg-20220415.53207.qcow2
 ALPINE=alpine3.14.6.qcow2
 
@@ -43,10 +44,14 @@ if [[ $2 == "-base" ]]; then	# modifies image directly
         VM_NAME=ubuntu20-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU20 $DISK_NAME
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         VM_NAME=ubuntu21-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU21 $DISK_NAME
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+        VM_NAME=ubuntu22-base
+        DISK_NAME=$VM_NAME.qcow2
+        cp $UBUNTU22 $DISK_NAME
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         VM_NAME=centos7-base
         DISK_NAME=$VM_NAME.qcow2
@@ -66,8 +71,10 @@ if [[ $2 == "-base" ]]; then	# modifies image directly
 elif [[ $2 == "-onbase" ]]; then
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         BASE=ubuntu20-base.qcow2
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         BASE=ubuntu21-base.qcow2
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+        BASE=ubuntu22-base.qcow2
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         BASE=centos7-base.qcow2
     elif [[ $OS_VARIANT == "archlinux" ]]; then

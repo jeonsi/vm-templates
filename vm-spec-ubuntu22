@@ -1,5 +1,5 @@
-VM_NAME="ubuntu2110-1"
-OS_VARIANT="ubuntu20.10"
+VM_NAME="ubuntu2204-1"
+OS_VARIANT="ubuntu21.04"
 USERNAME="ubuntu"
 PASSWORD="changeme"
 MEMORY=1024
