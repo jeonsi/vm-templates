@@ -89,8 +89,10 @@ elif [[ $2 == "-onbase" ]]; then
 else	# normal creation
     if [[ $OS_VARIANT == "ubuntu20.04" ]]; then
         BASE=$UBUNTU20
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         BASE=$UBUNTU21
+    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+        BASE=$UBUNTU22
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         BASE=$CENTOS
     elif [[ $OS_VARIANT == "archlinux" ]]; then
