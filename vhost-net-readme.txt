@@ -18,6 +18,7 @@ echo -n > /etc/machine-id
 
 # grub 수정
 /etc/default/grub
+# for ubuntu
 GRUB_CMDLINE_LINUX="biosdevname=0 net.ifnames=0"
 update-grub
 
@@ -37,7 +38,7 @@ yum install -y iperf3 tcpdump tmux
 yum install -y epel-release
 yum install -y iperf
 
-# remove mac for eth0
+# for centos, remove mac for eth0
 /etc/sysconfig/network-scripts/ifcfg-eth0
 remove HWADDR
 

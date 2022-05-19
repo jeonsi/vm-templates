@@ -1,0 +1,5 @@
+VM_NAME="vhost-net-08"
+OS_VARIANT="ubuntu20.04"
+USERNAME="root"
+PASSWORD="changeme"
+MEMORY=2048
