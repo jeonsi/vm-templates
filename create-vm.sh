@@ -2,9 +2,11 @@
 set -e
 
 __usage="
-Usage: $(basename $0) <vm-spec-file> [-mod]
+Usage: $(basename $0) <vm-spec-file> [ -base | -onbase ]
 
-  -mod : modifies base image directly
+  -base : creates a  base image and modifies the base image directly
+  -onbase : creates linked vm image based on a base image
+  <none> : directly use the image
 "
 
 num_params=$#

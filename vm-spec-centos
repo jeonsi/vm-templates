@@ -1,6 +1,6 @@
 VM_NAME="centos7-1"
 OS_VARIANT="centos7.0"
-USERNAME="centos"
+USERNAME="root"
 PASSWORD="changeme"
 MEMORY=1024
-OVS=br-int
+#OVS=br-int
