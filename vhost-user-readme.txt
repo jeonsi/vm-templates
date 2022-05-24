@@ -37,11 +37,19 @@ yum install -y iperf3 tcpdump tmux
 yum install -y epel-release
 yum install -y iperf
 
-# check again /etc/machine-id file
+# for ubuntu
+/etc/netplan/50-cloud-init.yaml
+network:
+    ethernets:
+        enp1s0:
+            dhcp4: true
+    version: 2
 
 # remove mac for eth0
 /etc/sysconfig/network-scripts/ifcfg-eth0
 remove HWADDR
+
+# check again /etc/machine-id file
 
 poweroff
 virsh undefine focal

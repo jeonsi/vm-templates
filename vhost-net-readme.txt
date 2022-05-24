@@ -38,6 +38,14 @@ yum install -y iperf3 tcpdump tmux
 yum install -y epel-release
 yum install -y iperf
 
+# for ubuntu
+/etc/netplan/50-cloud-init.yaml
+network:
+    ethernets:
+        enp1s0:
+            dhcp4: true
+    version: 2
+
 # for centos, remove mac for eth0
 /etc/sysconfig/network-scripts/ifcfg-eth0
 remove HWADDR
