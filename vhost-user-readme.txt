@@ -41,7 +41,7 @@ yum install -y iperf
 /etc/netplan/50-cloud-init.yaml
 network:
     ethernets:
-        enp1s0:
+        eth0:
             dhcp4: true
     version: 2
 

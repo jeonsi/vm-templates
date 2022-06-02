@@ -42,13 +42,24 @@ yum install -y iperf
 /etc/netplan/50-cloud-init.yaml
 network:
     ethernets:
-        enp1s0:
+        eth0:
             dhcp4: true
     version: 2
 
 # for centos, remove mac for eth0
 /etc/sysconfig/network-scripts/ifcfg-eth0
 remove HWADDR
+
+# increase partition size
+fdisk -l /dev/vda
+fdisk /dev/vda
+d
+1
+n
+1
+No
+w
+
 
 # check again /etc/machine-id file
 
@@ -141,6 +152,7 @@ virsh undefine focal
 ./create-vm.sh vm-spec-vhost-net-centos/vm-spec-vhost-net-40 -onbase
 ./create-vm.sh vm-spec-vhost-net-centos/vm-spec-vhost-net-41 -onbase
 
+
 # create storage pool
 virsh pool-define-as nfs dir - - - - "/mnt/nfs"
 virsh pool-build nfs
@@ -200,4 +212,49 @@ I_PEER_IP=1.5.200.`expr $i - 21`
 EOF
 "
 done
+
+
+cp vhost-net-00.qcow2 vhost-user-00.qcow2
+cp vhost-net-01.qcow2 vhost-user-01.qcow2
+cp vhost-net-02.qcow2 vhost-user-02.qcow2
+cp vhost-net-03.qcow2 vhost-user-03.qcow2
+cp vhost-net-04.qcow2 vhost-user-04.qcow2
+cp vhost-net-05.qcow2 vhost-user-05.qcow2
+cp vhost-net-06.qcow2 vhost-user-06.qcow2
+cp vhost-net-07.qcow2 vhost-user-07.qcow2
+cp vhost-net-08.qcow2 vhost-user-08.qcow2
+cp vhost-net-09.qcow2 vhost-user-09.qcow2
+cp vhost-net-10.qcow2 vhost-user-10.qcow2
+cp vhost-net-11.qcow2 vhost-user-11.qcow2
+cp vhost-net-12.qcow2 vhost-user-12.qcow2
+cp vhost-net-13.qcow2 vhost-user-13.qcow2
+cp vhost-net-14.qcow2 vhost-user-14.qcow2
+cp vhost-net-15.qcow2 vhost-user-15.qcow2
+cp vhost-net-16.qcow2 vhost-user-16.qcow2
+cp vhost-net-17.qcow2 vhost-user-17.qcow2
+cp vhost-net-18.qcow2 vhost-user-18.qcow2
+cp vhost-net-19.qcow2 vhost-user-19.qcow2
+cp vhost-net-20.qcow2 vhost-user-20.qcow2
+cp vhost-net-21.qcow2 vhost-user-21.qcow2
+cp vhost-net-22.qcow2 vhost-user-22.qcow2
+cp vhost-net-23.qcow2 vhost-user-23.qcow2
+cp vhost-net-24.qcow2 vhost-user-24.qcow2
+cp vhost-net-25.qcow2 vhost-user-25.qcow2
+cp vhost-net-26.qcow2 vhost-user-26.qcow2
+cp vhost-net-27.qcow2 vhost-user-27.qcow2
+cp vhost-net-28.qcow2 vhost-user-28.qcow2
+cp vhost-net-29.qcow2 vhost-user-29.qcow2
+cp vhost-net-30.qcow2 vhost-user-30.qcow2
+cp vhost-net-31.qcow2 vhost-user-31.qcow2
+cp vhost-net-32.qcow2 vhost-user-32.qcow2
+cp vhost-net-33.qcow2 vhost-user-33.qcow2
+cp vhost-net-34.qcow2 vhost-user-34.qcow2
+cp vhost-net-35.qcow2 vhost-user-35.qcow2
+cp vhost-net-36.qcow2 vhost-user-36.qcow2
+cp vhost-net-37.qcow2 vhost-user-37.qcow2
+cp vhost-net-38.qcow2 vhost-user-38.qcow2
+cp vhost-net-39.qcow2 vhost-user-39.qcow2
+cp vhost-net-40.qcow2 vhost-user-40.qcow2
+cp vhost-net-41.qcow2 vhost-user-41.qcow2
+
 

@@ -46,26 +46,32 @@ if [[ $2 == "-base" ]]; then	# modifies image directly
         VM_NAME=ubuntu20-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU20 $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         VM_NAME=ubuntu21-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU21 $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
         VM_NAME=ubuntu22-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU22 $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         VM_NAME=centos7-base
         DISK_NAME=$VM_NAME.qcow2
         cp $CENTOS $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "archlinux" ]]; then
         VM_NAME=arch-base
         DISK_NAME=$VM_NAME.qcow2
         cp $ARCH $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     elif [[ $OS_VARIANT == "alpinelinux3.14" ]]; then
         VM_NAME=alpine-base
         DISK_NAME=$VM_NAME.qcow2
         cp $ALPINE $DISK_NAME
+        qemu-img resize $DISK_NAME $DISKSIZE
     else
         echo "$OS_VARIANT not supported"
         exit 1
