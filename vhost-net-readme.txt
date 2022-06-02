@@ -50,17 +50,6 @@ network:
 /etc/sysconfig/network-scripts/ifcfg-eth0
 remove HWADDR
 
-# increase partition size
-fdisk -l /dev/vda
-fdisk /dev/vda
-d
-1
-n
-1
-No
-w
-
-
 # check again /etc/machine-id file
 
 poweroff
@@ -161,11 +150,8 @@ virsh pool-autostart nfs
 virsh pool-list
 
 cd <script-floder>
-./create_vhost_user_1c2g.sh
-./mod_vhost_user_xml_42vms_mac4_1q.sh
-./start_all_vhost_user.sh
-
-./add-vmnet-to-PM1.sh
+./create_virtio_net_1c2g.sh
+./start_all_vhost_net.sh
 
 #add-vmnet-to-PM1.sh
 #!/bin/bash
@@ -190,6 +176,8 @@ EOF
 "
 done
 
+ansible all -m shell -a 'hostnamectl set-hostname ubuntu20'
+
 #add-vmnet-to-PM2.sh
 #!/bin/bash
 
@@ -212,7 +200,6 @@ I_PEER_IP=1.5.200.`expr $i - 21`
 EOF
 "
 done
-
 
 cp vhost-net-00.qcow2 vhost-user-00.qcow2
 cp vhost-net-01.qcow2 vhost-user-01.qcow2
