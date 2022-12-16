@@ -52,7 +52,7 @@ if [[ $2 == "-base" ]]; then	# modifies image directly
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU21 $DISK_NAME
         qemu-img resize $DISK_NAME $DISKSIZE
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu22.04" ]]; then
         VM_NAME=ubuntu22-base
         DISK_NAME=$VM_NAME.qcow2
         cp $UBUNTU22 $DISK_NAME
@@ -81,7 +81,7 @@ elif [[ $2 == "-onbase" ]]; then
         BASE=ubuntu20-base.qcow2
     elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         BASE=ubuntu21-base.qcow2
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu22.04" ]]; then
         BASE=ubuntu22-base.qcow2
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         BASE=centos7-base.qcow2
@@ -99,7 +99,7 @@ else	# normal creation
         BASE=$UBUNTU20
     elif [[ $OS_VARIANT == "ubuntu20.10" ]]; then
         BASE=$UBUNTU21
-    elif [[ $OS_VARIANT == "ubuntu21.04" ]]; then
+    elif [[ $OS_VARIANT == "ubuntu22.04" ]]; then
         BASE=$UBUNTU22
     elif [[ $OS_VARIANT == "centos7.0" ]]; then
         BASE=$CENTOS
