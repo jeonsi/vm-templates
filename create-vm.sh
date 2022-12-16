@@ -148,7 +148,6 @@ echo "  --check-cpu \\"
 echo "  --memory $MEMORY \\"
 echo "  --disk $DISK_NAME,device=disk,bus=virtio \\"
 echo "  --disk $VM_NAME-cloud-init.iso,device=cdrom \\"
-echo "  --os-type linux \\"
 echo "  --os-variant $OS_VARIANT \\"
 echo "  --virt-type kvm \\"
 if [[ $VNC == "true" ]] ; then
