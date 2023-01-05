@@ -1,6 +1,8 @@
 # How to create 42 ubuntu 20.04 test vm disks
 # cloud-localds not found
 # sudo apt install cloud-image-utils
+# for virtualization
+# apt install ansible sshpass python-is-python3 qemu-kvm libvirt-daemon-system libvirt-clients bridge-utils virtinst cloud-image-utils
 # sudo yum install cloud-utils
 ./create-vm.sh vm-spec-vhost-net-ubuntu/vm-spec-vhost-net-00 -base
 ./create-vm.sh vm-spec-vhost-net-centos/vm-spec-vhost-net-00 -base
