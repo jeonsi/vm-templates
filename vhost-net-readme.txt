@@ -39,6 +39,7 @@ apt update
 apt install -y iperf iperf3
 # 불필요한 부하유발 패키지 제거
 apt purge landscape-common unattended-upgrades -y
+apt autoremove
 
 # for centos
 yum install -y iperf3 tcpdump tmux
@@ -60,7 +61,7 @@ remove HWADDR
 # check again /etc/machine-id file
 
 poweroff
-virsh undefine focal
+virsh undefine ubuntu20-base
 
 ./create-vm.sh vm-spec-vhost-net-ubuntu/vm-spec-vhost-net-00 -onbase
 ./create-vm.sh vm-spec-vhost-net-ubuntu/vm-spec-vhost-net-01 -onbase
