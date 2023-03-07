@@ -37,6 +37,8 @@ PermitRootLogin yes
 # package 설치
 apt update
 apt install -y iperf iperf3
+# 불필요한 부하유발 패키지 제거
+apt purge landscape-common unattended-upgrades -y
 
 # for centos
 yum install -y iperf3 tcpdump tmux
